@@ -6,6 +6,11 @@ int counter = 0;
 boolean goingUp = true;
 
 void setup() {
+  size(200, 200);
+  fill(255, 0, 0);
+  text("Click here to stop execution", 20, 20);
+  ellipse(100, 100, 100, 100);
+  
   frameRate(10);
   int[] pins = {4, 17, 27, 5, 6, 13, 19, 26, 21, 16};
   for(int i = 0; i < 10; i++) {
@@ -45,8 +50,13 @@ void keyPressed() {
   for(int i = 0; i < 10; i++) {
     GPIO.releasePin(leds[i].getPin());
   }
-  
+  exit();
+}
 
+void mousePressed() {
+  for(int i = 0; i < 10; i++) {
+    GPIO.releasePin(leds[i].getPin());
+  }
   exit();
 }
 

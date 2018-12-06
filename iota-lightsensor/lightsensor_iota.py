@@ -38,12 +38,12 @@ def setup():
 def loop():
         while True:
                 data = []
-                for _ in range(20):
-                        time.sleep(1)
+                for _ in range(5):
+                        time.sleep(5)
                         value = analogRead(0)
                         p.ChangeDutyCycle(value*100/255)
                         voltage = value / 255.0 * 3.3
-                        data.append({"voltage": voltage, "value": value})
+                        data.append({"voltage": voltage, "value": value, "timestamp": {"unix": int(time.time()), "readable": time.ctime()}})
                         print("voltage: " + str(voltage), "value: " + str(value))
                 threading.Thread(target=postToTangle, args=(data,)).start()
                             

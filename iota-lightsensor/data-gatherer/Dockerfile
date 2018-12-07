@@ -14,4 +14,5 @@ RUN apk update
 
 RUN apk add py-smbus@testing
 RUN apk add i2c-tools --no-cache
+RUN pip install RPi.GPIO
 CMD python lightsensor_iota.py

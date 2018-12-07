@@ -13,6 +13,12 @@ RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repo
 RUN apk update
 
 RUN apk add py-smbus@testing
+
+RUN echo @community http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
+RUN apk update
+
+RUN apk add py-rpigpio@community
+
+
 RUN apk add i2c-tools --no-cache
-RUN pip install RPi.GPIO
 CMD python lightsensor_iota.py

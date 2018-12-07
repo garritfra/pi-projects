@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
-#############################################################################
-# Filename    : Nightlamp.py
-# Description : Photoresistor control LED
-# Author      : freenove
-# modification: 2018/08/02
-########################################################################
+
 import RPi.GPIO as GPIO
 import smbus
+
+import os
 import time
 import requests
 import json
 import threading
 
-iotaAddress = "JCEGOJWWQFGUGQNCTDXXZHTPRPOCRLROHMYXZTLLDBORIOYCZOZYRSCMZSPRSPJZUMP9QDWZQPAYAOLHD"
+iotaAddress = os.environ["TANGLE_ADDRESS"]
 
 address = 0x48
 bus = smbus.SMBus(1)

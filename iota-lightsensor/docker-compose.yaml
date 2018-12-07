@@ -1,0 +1,9 @@
+version: "3"
+services:
+  submitter:
+    build: ./submitter
+    ports:
+      - "1234:1234"
+  data-gatherer:
+    build: ./data-gatherer
+    privileged: true
